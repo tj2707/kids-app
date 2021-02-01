@@ -1,0 +1,9 @@
+<v-col cols="4">
+  <admin-list 
+    :loading="loading"
+    :items="users"
+    :onItemClick="setSelectedUser"
+    :addNewItem="addNewUser"
+    title="Users"
+    itemKey="name" />
+</v-col>

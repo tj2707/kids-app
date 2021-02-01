@@ -1,0 +1,34 @@
+{
+  "name": "task-list-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "npm run build && serverless offline --region eu-west-1 --port 3001",
+    "debug": "npm run build && SET SLS_DEBUG=* && node --inspect %USERPROFILE%\\AppData\\Roaming\\npm\\node_modules\\serverless\\bin\\serverless offline -s dev --region eu-west-1 --port 3001",
+    "prod": "npm run build && serverless deploy --region eu-west-1",
+    "test": "npm run build && serverless invoke local --path test/event.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.31",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/bluebird": "^3.5.27",
+    "@types/node": "^12.7.2",
+    "@types/sequelize": "^4.28.4",
+    "serverless": "^1.51.0",
+    "serverless-offline": "^5.10.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.534.0",
+    "bluebird": "^3.5.5",
+    "inversify": "^5.0.1",
+    "mysql2": "^1.6.5",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.16.0",
+    "sequelize-typescript": "^1.0.0"
+  }
+}

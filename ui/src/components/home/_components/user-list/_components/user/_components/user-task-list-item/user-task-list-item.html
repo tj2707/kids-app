@@ -1,0 +1,16 @@
+<v-list-item>
+  <template v-slot:default="">
+    <v-list-item-content>
+      <v-list-item-title>{{ title }}</v-list-item-title>
+      <v-list-item-subtitle>{{ description }}</v-list-item-subtitle>
+    </v-list-item-content>
+    <v-list-item-action ref="container">
+      <v-checkbox color="primary" v-model="active" ref="cb"></v-checkbox>
+      <div class="star" ref="content">
+        <svg viewBox="0 0 20 20">
+          <polygon points="10 1 12.2 8 19.5 8 13.6 12.2 16 19 10 14.8 4.1 19.1 6.4 12.1 .4 8 7.8 8"/>
+        </svg>
+      </div>
+    </v-list-item-action>
+  </template>
+</v-list-item>

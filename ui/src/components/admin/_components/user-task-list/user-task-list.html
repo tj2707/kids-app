@@ -1,0 +1,58 @@
+<v-col cols="4">
+  <admin-list
+    :loading="loading"
+    :items="sortedUserTasks"
+    :itemSubKeyFunc="getItemSubText"
+    :itemKeyFunc="getItemText"
+    :title="title"
+  >
+    <template v-slot:toolbar>
+      <v-dialog v-model="showDialog" persistent max-width="500px">
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>
+            <span class="headline">Create Task</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-select 
+                    :items="tasks" 
+                    label="Task"
+                    item-text="title"
+                    item-value="id"
+                    v-model="taskId"
+                  ></v-select>
+                </v-col>
+                <v-col cols="12">
+                  <h4>Days</h4>
+                </v-col>
+                <v-col cols="6"
+                v-for="(day, index) in daysOfTheWeek" 
+                :key="day">
+                  <v-checkbox 
+                    v-model="weekdays" 
+                    :label="day" 
+                    :value="index" 
+                    color="success"
+                  ></v-checkbox>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <div class="flex-grow-1">
+              <v-btn color="blue darken-1" text @click="showDialog = false">Close</v-btn>
+              <v-btn color="blue darken-1" text @click="addNewTask">Save</v-btn>
+            </div>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </template>
+  </admin-list>
+</v-col>

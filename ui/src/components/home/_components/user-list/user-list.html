@@ -1,0 +1,7 @@
+<v-row justify="space-around">
+  <user-component 
+    v-for="user in userTasksGroupedByUserId" 
+    :key="user.key" 
+    :userTasks="user"
+  ></user-component>
+</v-row>

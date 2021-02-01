@@ -1,0 +1,42 @@
+<v-col cols="4">
+  <admin-list 
+    :loading="loading"
+    :items="tasks"
+    title="Tasks"
+    itemKey="title"
+    itemSubKey="description"
+  >
+    <template v-slot:toolbar>
+      <v-dialog v-model="showDialog" persistent max-width="300px">
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </template>
+        <v-card>
+          <v-card-title>
+            <span class="headline">Create Task</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-row>
+                <v-col cols="12">
+                  <v-text-field v-model="newTask.title" label="Title" required></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field v-model="newTask.description" label="Description" required></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <div class="flex-grow-1">
+              <v-btn color="blue darken-1" text @click="showDialog = false">Close</v-btn>
+              <v-btn color="blue darken-1" text @click="addNewTask">Save</v-btn>
+            </div>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </template>
+  </admin-list>
+</v-col>

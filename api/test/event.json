@@ -1,0 +1,12 @@
+{
+  "path": "/task",
+  "httpMethod": "PUT",
+  "headers": {
+          "Content-Type": "application/json"
+  },
+  "queryStringParameters": null,
+  "pathParameters": { "id": 3 },
+  "stageVariables": null,
+  "body": "{ \"title\": \"'Test\", \"description\":\"Hello\"}",
+  "isBase64Encoded": false
+}

@@ -1,0 +1,1 @@
+export { default } from './user-task-list-item.vue';

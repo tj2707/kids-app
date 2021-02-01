@@ -1,0 +1,36 @@
+<v-card>
+  <v-toolbar color="accent" dark>
+    <v-toolbar-title>{{ title }}</v-toolbar-title>
+    <div class="flex-grow-1"></div>
+    <slot name="toolbar">
+        <v-btn icon @click="addNewItemClick">
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+    </slot>
+  </v-toolbar>
+  <v-list dense tile flat>
+    <v-list-item-group>
+      <v-list-item v-if="loading">
+        <v-list-item-content>
+          <v-progress-circular indeterminate />
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item v-if="!loading && !items.length">
+        <v-list-item-content>
+          <v-list-item-title>
+            There are no items
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <admin-list-item 
+        v-if="!loading && items.length"
+        v-for="item in items" 
+        :key="item.id" 
+        :onClick="onItemClick"
+        :itemKey="itemKey"
+        :item="item"
+        :itemKeyFunc="itemKeyFunc"
+        :itemSubKeyFunc="itemSubKeyFunc" />
+    </v-list-item-group>
+  </v-list>
+</v-card>

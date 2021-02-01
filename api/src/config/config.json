@@ -1,0 +1,13 @@
+{
+  "SsmBasePath": "/todo/",
+  "ConfigMappings": {
+    "Api": {
+      "Database": {
+        "Host": "api/database/host",
+        "Name": "api/database/name",
+        "Username": "api/database/username",
+        "Password": "api/database/password"
+      }
+    }
+  }
+}

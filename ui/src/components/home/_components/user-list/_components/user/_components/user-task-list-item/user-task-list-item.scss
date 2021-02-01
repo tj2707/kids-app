@@ -1,0 +1,11 @@
+.star {
+  visibility: hidden;
+}
+
+svg {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 99;
+}
